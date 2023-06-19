@@ -40,14 +40,14 @@ llstates
 
 default_state
 	: StateDefault (
-		'{' state_body? '}'
-	)?
+		'{' state_body '}'
+	)
 	;
 
 llstate
 	: State Identifier (
-		'{' state_body? '}'
-	)?
+		'{' state_body '}'
+	)
 	;
 
 global_variable
@@ -136,7 +136,7 @@ function_parameter
 	;
 
 state_body
-	: event state_body?
+	: event*
 	;
 ///////////////////////////////////////////////////////////////////////////////
 // Events
