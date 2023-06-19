@@ -179,10 +179,6 @@ nextforexpressionlist
 	;
 
 funcexpressionlist
-	: nextfuncexpressionlist
-	;
-
-nextfuncexpressionlist
 	: expression (
 		',' expression
 	)*
@@ -251,7 +247,7 @@ unarypostfixexpression
 	| lvalue
 	| lvalue PlusPlus
 	| lvalue MinusMinus
-	| identifier '(' funcexpressionlist ')'
+	| identifier '(' funcexpressionlist? ')'
 	| Print '(' expression ')'
 	| constant
 	;
