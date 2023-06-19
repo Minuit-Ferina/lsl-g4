@@ -132,7 +132,7 @@ function_parameters
 	)*
 	;
 function_parameter
-	: typename Identifier
+	: name_type
 	;
 
 state_body
