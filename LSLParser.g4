@@ -164,18 +164,15 @@ statement
 	| compound_statement
 	| If '(' expression ')' statement //prec LOWER_THAN_ELSE
 	| If '(' expression ')' statement Else statement
-	| For '(' forexpressionlist ';' expression ';' forexpressionlist ')' statement
+	| For '(' forexpressionlist? ';' expression ';' forexpressionlist ')' statement
 	| Do statement While '(' expression ')' ';'
 	| While '(' expression ')' statement
 	;
 
 forexpressionlist
-	: nextforexpressionlist
-	;
-
-nextforexpressionlist
-	: expression
-	| expression ',' nextforexpressionlist
+	: expression (
+		',' expression
+	)*
 	;
 
 funcexpressionlist
