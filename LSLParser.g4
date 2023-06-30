@@ -30,10 +30,6 @@ typename
 	| List
 	;
 
-name_type
-	: typename identifier
-	;
-
 llstates
 	: default_state llstate*
 	;
@@ -51,7 +47,7 @@ llstate
 	;
 
 global_variable
-	: name_type (
+	: typename identifier (
 		'=' simple_assignable
 	)? ';'
 	;
@@ -122,8 +118,7 @@ list_entry
 	;
 
 global_function
-	: identifier '(' function_parameters? ')' compound_statement
-	| name_type '(' function_parameters? ')' compound_statement
+	: typename? identifier '(' function_parameters? ')' compound_statement
 	;
 
 function_parameters
@@ -132,7 +127,7 @@ function_parameters
 	)*
 	;
 function_parameter
-	: name_type
+	: typename identifier
 	;
 
 state_body
